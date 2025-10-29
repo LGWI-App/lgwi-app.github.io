@@ -237,6 +237,7 @@ html {
 }
 .tech-section {
   text-align: center;
+  margin: 0rem;
 }
 
 .tech-section h2 {
@@ -353,7 +354,7 @@ body {
 
 .hero-img {
   width: 100%;
-  height: 45vh;
+  height: 55vh;
   object-fit: cover;
   filter: brightness(60%);
 }
