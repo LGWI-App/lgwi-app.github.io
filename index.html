@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LGWI Senior Project</title>
+  <link rel="icon" href="assets/logo.ico">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="home"></div>
 
   <!-- Navbar -->
  <nav class="navbar">
@@ -36,7 +38,7 @@
 
 <!-- Mini Navigation Bar -->
 <!-- Mini Navigation Bar -->
-<nav class="mini-nav">
+<!-- <nav class="mini-nav">
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#features">Features</a></li>
@@ -44,7 +46,7 @@
     <li><a href="techstack.html">Tech Stack</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-</nav>
+</nav> -->
 
 
 
@@ -130,6 +132,53 @@
     <h2>Contact</h2>
     <p>Reach out to the Members and Advisors via email!</p>
   </section>
+
+  <script>
+    (function () {
+      // Smoothly handle incoming hash on page load (cross-page links)
+      window.addEventListener('DOMContentLoaded', function () {
+        if (location.hash) {
+          var id = location.hash.slice(1);
+          if (!id) return;
+          if (id === 'home') {
+            window.scrollTo({ top: 0 });
+            try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) {}
+            return;
+          }
+          var target = document.getElementById(id);
+          if (target) {
+            // allow layout/paint, then scroll smoothly
+            setTimeout(function () {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 50);
+          }
+        }
+      });
+
+      // Intercept same-page anchor clicks (href="#...") and scroll smoothly
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href^="#"]');
+        if (!a) return;
+        var href = a.getAttribute('href');
+        if (!href) return;
+        // allow links that are just "#" to behave normally
+        if (href === '#') return;
+        e.preventDefault();
+        var id = href.slice(1);
+        if (!id) return;
+        if (id === 'home') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (err) {}
+          return;
+        }
+        var target = document.getElementById(id);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          try { history.replaceState(null, '', '#' + id); } catch (err) {}
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>
