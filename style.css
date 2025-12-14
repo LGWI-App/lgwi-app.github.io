@@ -235,6 +235,40 @@ html {
 .team-member .fab.fa-github {
   color: #333;
 }
+
+.report-container {
+  margin-top: 20px;
+}
+
+.report-container p {
+  font-size: 1.2em;
+}
+
+.report-container p a {
+  color: #006699;
+  text-decoration: underline;
+}
+
+.report-container p a:hover {
+  color: #0056b3;
+}
+
+.report-container > a[download] {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  transition: background-color 0.3s;
+}
+
+.report-container > a[download]:hover {
+  background-color: #0056b3;
+}
+
 .tech-section {
   text-align: center;
   margin: 0rem;
@@ -292,9 +326,20 @@ html {
 .footer {
   background-color: #006699;
   color: white;
-  text-align: center;
   padding: 1rem 0;
   margin-top: 3rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.footer-logo {
+  max-width: 200px;
+  height: auto;
 }
 
 .nav-links a.active {
